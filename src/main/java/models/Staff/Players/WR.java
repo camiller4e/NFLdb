@@ -1,4 +1,11 @@
 package models.Staff.Players;
 
-public class WR {
+public class WR extends Player {
+
+    public WR(String name, int salary, int playerNum) {
+        super(name, salary, playerNum);
+    }
+
+    public WR() {
+    }
 }

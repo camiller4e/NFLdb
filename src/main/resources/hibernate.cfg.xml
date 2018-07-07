@@ -22,7 +22,7 @@
         <mapping class="models.Tournaments.AFC"/>
         <mapping class="models.Tournaments.NFC"/>
         <mapping class="models.Tournaments.Playoffs"/>
-        <mapping class="models.Tournaments.Tournament"/>
+        <mapping class="models.Tournaments.Tournaments"/>
 
 
     </session-factory>
