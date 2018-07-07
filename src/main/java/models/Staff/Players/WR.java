@@ -8,4 +8,8 @@ public class WR extends Player {
 
     public WR() {
     }
+
+    public String receive(){
+        return "Oh! A beautiful catch by " + getName() + "!";
+    }
 }

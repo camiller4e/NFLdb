@@ -8,4 +8,8 @@ public class QB extends Player {
 
     public QB() {
     }
+
+    public String pass(){
+        return getName() + " there, throwing frozen ropes";
+    }
 }

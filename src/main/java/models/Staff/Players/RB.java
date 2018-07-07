@@ -8,4 +8,8 @@ public class RB extends Player {
 
     public RB() {
     }
+
+    public String run(){
+        return getName() + " manages to gain five yards";
+    }
 }

@@ -9,4 +9,8 @@ public class K extends Player {
     public K() {
     }
 
+    public String kick(){
+        return getName() + " kicks the ball!";
+    }
+
 }
