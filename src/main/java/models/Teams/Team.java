@@ -2,26 +2,34 @@ package models.Teams;
 
 import models.Staff.Manager;
 import models.Staff.Players.Player;
+import models.Tournaments.Tournaments;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "teams")
 public class Team {
     private int id;
     private String name;
     private Manager manager;
     private List<Player> players;
+    private Tournaments tournament;
     private int wins;
 
-    public Team(String name, Manager manager, List<Player> players, int wins) {
+    public Team(String name, int wins, Manager manager, Tournaments tournament) {
         this.name = name;
-        this.manager = manager;
-        this.players = players;
         this.wins = wins;
+        this.manager = manager;
+        this.tournament = tournament;
     }
 
     public Team() {
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -30,6 +38,7 @@ public class Team {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -38,6 +47,7 @@ public class Team {
         this.name = name;
     }
 
+    @OneToOne(mappedBy = "team", fetch = FetchType.LAZY)
     public Manager getManager() {
         return manager;
     }
@@ -46,6 +56,7 @@ public class Team {
         this.manager = manager;
     }
 
+    @OneToMany(mappedBy = "team", fetch = FetchType.LAZY)
     public List<Player> getPlayers() {
         return players;
     }
@@ -54,6 +65,7 @@ public class Team {
         this.players = players;
     }
 
+    @Column(name = "wins")
     public int getWins() {
         return wins;
     }

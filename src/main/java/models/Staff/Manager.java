@@ -2,6 +2,11 @@ package models.Staff;
 
 import models.Teams.Team;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "managers")
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Manager extends TeamMember {
     private Team team;
 
@@ -12,6 +17,8 @@ public class Manager extends TeamMember {
     public Manager() {
     }
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "team_id", nullable = false)
     public Team getTeam() {
         return team;
     }
