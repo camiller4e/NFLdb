@@ -18,7 +18,7 @@ public class Manager extends TeamMember {
     }
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "team_id", nullable = false)
+    @JoinColumn(name = "team_id", nullable = true)
     public Team getTeam() {
         return team;
     }

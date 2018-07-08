@@ -12,7 +12,7 @@ public class Player extends TeamMember {
     private int playerNum;
     private Team team;
 
-    public Player(String name, int salary, int playerNum) {
+    public Player(String name, int salary, int playerNum, Team team) {
         super(name, salary);
         this.playerNum = playerNum;
         this.team = team;

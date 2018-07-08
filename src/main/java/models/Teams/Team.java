@@ -73,4 +73,8 @@ public class Team {
     public void setWins(int wins) {
         this.wins = wins;
     }
+
+    public void addPlayer(Player player){
+        this.players.add(player);
+    }
 }
