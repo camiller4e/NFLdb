@@ -2,9 +2,12 @@ package models.Teams;
 
 import models.Staff.Manager;
 import models.Staff.Players.Player;
+import models.Tournaments.Game;
 import models.Tournaments.Tournaments;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -16,12 +19,14 @@ public class Team {
     private List<Player> players;
     private Tournaments tournament;
     private int wins;
+    private List<Game> games;
 
     public Team(String name, int wins, Manager manager, Tournaments tournament) {
         this.name = name;
         this.wins = wins;
         this.manager = manager;
         this.tournament = tournament;
+        this.games = new ArrayList<Game>();
     }
 
     public Team() {
@@ -74,7 +79,24 @@ public class Team {
         this.wins = wins;
     }
 
+    @Cascade(org.hibernate.annotations.CascadeType.SAVE_UPDATE)
+    @ManyToMany
+    @JoinTable(name = "football_game",
+            joinColumns = {@JoinColumn(name = "team_id", nullable = false, updatable = false)},
+            inverseJoinColumns = {@JoinColumn(name = "game_id", nullable = false, updatable = false)})
+    public List<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(List<Game> games) {
+        this.games = games;
+    }
+
     public void addPlayer(Player player){
         this.players.add(player);
+    }
+
+    public void addGame(Game game){
+        this.games.add(game);
     }
 }

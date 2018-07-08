@@ -4,6 +4,7 @@ import db.DBTeam;
 import models.Staff.Manager;
 import models.Staff.Players.*;
 import models.Teams.Team;
+import models.Tournaments.Game;
 import models.Tournaments.Tournaments;
 
 import java.util.List;
@@ -55,6 +56,12 @@ public class Runner {
         List<Player> allPlayers = DBHelper.getAll(Player.class);
         List<Manager> allManagers = DBHelper.getAll(Manager.class);
         List<Team> allTeams = DBHelper.getAll(Team.class);
-        
+
+        Game game1 = new Game("Lambeau Field");
+        DBHelper.save(game1);
+
+        game1.addTeam(titans);
+        game1.addTeam(packers);
+
     }
 }

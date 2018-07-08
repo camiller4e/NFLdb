@@ -20,5 +20,6 @@
         <mapping class="models.Staff.Manager"/>
         <mapping class="models.Staff.TeamMember"/>
         <mapping class="models.Teams.Team"/>
+        <mapping class="models.Tournaments.Game"/>
     </session-factory>
 </hibernate-configuration>
