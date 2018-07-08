@@ -1,4 +1,5 @@
 import db.DBHelper;
+import db.DBPlayer;
 import db.DBTeam;
 import models.Staff.Manager;
 import models.Staff.Players.*;
@@ -50,11 +51,7 @@ public class Runner {
         Player K = new K("Mason Crosby", 1000000, 2, packers);
         DBHelper.save(K);
 
-        packers.addPlayer(QB1);
-        packers.addPlayer(RB1);
-        packers.addPlayer(WR1);
-        packers.addPlayer(TE1);
-        packers.addPlayer(K);
+        DBPlayer.addPlayerToTeam(QB1, packers);
 
         List<Player> allPlayersOnTeam = DBTeam.getPlayersOnTeam(packers);
 
