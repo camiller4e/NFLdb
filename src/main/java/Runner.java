@@ -51,10 +51,10 @@ public class Runner {
         Player K = new K("Mason Crosby", 1000000, 2, packers);
         DBHelper.save(K);
 
-        DBPlayer.addPlayerToTeam(QB1, packers);
-
         List<Player> allPlayersOnTeam = DBTeam.getPlayersOnTeam(packers);
-
-
+        List<Player> allPlayers = DBHelper.getAll(Player.class);
+        List<Manager> allManagers = DBHelper.getAll(Manager.class);
+        List<Team> allTeams = DBHelper.getAll(Team.class);
+        
     }
 }

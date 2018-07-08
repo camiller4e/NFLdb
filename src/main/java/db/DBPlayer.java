@@ -10,8 +10,5 @@ public class DBPlayer {
     private Session session;
     private Transaction transaction;
 
-    public static void addPlayerToTeam(Player player, Team team){
-        team.addPlayer(player);
-        DBHelper.update(player);
-    }
+
 }
